@@ -1,135 +1,120 @@
-[![hugo](https://user-images.githubusercontent.com/43764894/223559747-e9d7f19d-91bf-46a9-a0cb-8d6a40d3cfa3.png)](https://ntl.fyi/3P9w1mr)
+# eleventy-base-blog v8
 
-# Hugo Quickstart Template   
+A starter repository showing how to build a blog with the [Eleventy](https://www.11ty.dev/) site generator (using the [v2.0 release](https://www.11ty.dev/blog/eleventy-v2/)).
 
-This is a bare-bones Hugo project that has everything you need to quickly deploy it to [Netlify](https://netlify.com). 
+## Getting Started
 
-Hate reading, here's a video: https://youtu.be/t-tsRxxYdpk
+* [Want a more generic/detailed getting started guide?](https://www.11ty.dev/docs/getting-started/)
 
-Love reading, here's blog post: https://www.netlify.com/blog/deploy-your-hugo-app-quick/
+1. Make a directory and navigate to it:
 
-## Table of Contents:
-
-- [Quick Setup + Deploy Option](#quick-setup--deploy-option)
-- [Regular Setup](#regular-setup)
-  - [Cloning + Install Packages](#1-cloning--install-packages)
-  - [Deploying](#2-deploying)
-- [Styling](#styling)
-  - [Notes on Styling](#notes-on-styling)
-  - [Remove Styling](#remove-styling)
-- [Hugo + Netlify Resources](#hugo--netlify-resources)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-  - [Removing Cypress](#removing-cypress)
-- [Want to learn more?](#want-to-learn-more)
-
-## Quick Setup + Deploy Option
-
-Click this button and it will help you create a new repo, create a new Netlify project, and deploy!
-
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/hugo-quickstart)
-
-## Regular Setup
-
- ### 1. Cloning + Running Locally
-
-  - Clone this repo with one of these options:
-
-    - Click the 'Use this template' button at the top of the page
-    - Or via the command line `git clone https://github.com/netlify-templates/hugo-quickstart`
-
- - Start the Hugo sever & check it out:
-
-   - `hugo server -D`
-   - go to [http://localhost:1313/](http://localhost:1313/)
-
-  > Alternatively, you can run this locally with [the Netlify CLI](https://docs.netlify.com/cli/get-started/)'s by running the `netlify dev` command for more options like receiving a live preview to share (`netlify dev --live`) and the ability to test [Netlify Functions](https://www.netlify.com/products/functions) and [redirects](https://docs.netlify.com/routing/redirects/). 
-
-  ### 2. Deploying
-  - Install the Netlify CLI globally `npm install netlify-cli -g`
-    
-  - Run `hugo`
-
-  - Then use the `netlify deploy` for a deploy preview link or `netlify deploy --prod` to deploy to production
-
-  Here are a few other ways you can deploy this template:
-    
-  - Use the Netlify CLI's create from template command `netlify sites:create-template hugo-quickstart` which will create a repo, Netlify project, and deploy it
-    
-  - If you want to utilize continuous deployment through GitHub webhooks, run the Netlify command `netlify init` to create a new project based on your repo or `netlify link` to connect your repo to an existing project
-
-## Styling
-
-We've added some modern styling to this template using Sass within an external stylesheet, this will allow you to easily remove our styling and add in your own. 
-
-If you decide that you want to keep our styling you can review our style notes below. 
-
-### Notes on Styling
-
-The variables below give you the ability to change the gradient colors of the blobs and are interpolated into the URL string of the background-img within the body. 
-
-```css
-// Controls the blob blur gradient colors within the main tag's svg
---top-right-blur-1: #2ebc92;
---top-right-blur-2: #ecbb50;
---bttm-left-blur-1: #ff3e89;
---bttm-left-blur-2: #0095cc;
+```
+mkdir my-blog-name
+cd my-blog-name
 ```
 
-## Remove Styling
+2. Clone this Repository
 
-If you decide that our styling is not for you, all you'll need to do is remove the [demo-styling.css](https://github.com/netlify-templates/hugo-quickstart/blob/main/themes/netlify-basic/static/css/demo-styling.css) file. 
-
-## Hugo + Netlify Resources
-
-Here are some resources to help you on your Hugo + Netlify coding fun!
-
-- [Hugo on Netlify Integration Page](https://ntl.fyi/3P9w1mr)
-
-
-Hope this template helps :) Happy coding 👩🏻‍💻!
-
----
-
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
-
-### Removing Cypress
-
-For our testing, we use [Cypress](https://www.cypress.io/) for end-to-end testing. This makes sure that we can validate that our templates are rendering and displaying as we’d expect. By default, we have Cypress not generate deploy links if our tests don’t pass. If you’d like to keep Cypress and still generate the deploy links, go into your `netlify.toml` and delete the plugin configuration lines:
-
-```diff
-[[plugins]]
-  package = "netlify-plugin-cypress"
--  [plugins.inputs.postBuild]
--    enable = true
--
--  [plugins.inputs]
--    enable = false 
+```
+git clone https://github.com/11ty/eleventy-base-blog.git .
 ```
 
-If you’d like to remove the `netlify-plugin-cypress` build plugin entirely, you’d need to delete the entire block above instead. And then make sure sure to remove the package from the dependencies using:
+_Optional:_ Review `eleventy.config.js` and `_data/metadata.js` to configure the site’s options and data.
 
-```bash
-npm uninstall -D netlify-plugin-cypress
+3. Install dependencies
+
+```
+npm install
 ```
 
-And lastly if you’d like to remove Cypress entirely, delete the entire `cypress` folder and the `cypress.config.ts` file. Then remove the dependency using:
+4. Run Eleventy
 
-```bash
-npm uninstall cypress
+Generate a production-ready build to the `_site` folder:
+
 ```
+npx @11ty/eleventy
+```
+
+Or build and host on a local development server:
+
+```
+npx @11ty/eleventy --serve
+```
+
+Or you can run [debug mode](https://www.11ty.dev/docs/debugging/) to see all the internals.
+
+## Features
+
+- Using [Eleventy v2.0](https://www.11ty.dev/blog/eleventy-v2/) with zero-JavaScript output.
+	- Content is exclusively pre-rendered (this is a static site).
+	- Can easily [deploy to a subfolder without changing any content](https://www.11ty.dev/docs/plugins/html-base/)
+	- All URLs are decoupled from the content’s location on the file system.
+	- Configure templates via the [Eleventy Data Cascade](https://www.11ty.dev/docs/data-cascade/)
+- **Performance focused**: four-hundos Lighthouse score out of the box!
+	- [View the Lighthouse report for the latest build](https://eleventy-base-blog.netlify.app/reports/lighthouse/) courtesy of the [Netlify Lighthouse plugin](https://github.com/netlify/netlify-plugin-lighthouse).
+	- _0 Cumulative Layout Shift_
+	- _0ms Total Blocking Time_
+- Local development live reload provided by [Eleventy Dev Server](https://www.11ty.dev/docs/dev-server/).
+- Content-driven [navigation menu](https://www.11ty.dev/docs/plugins/navigation/)
+- [Image optimization](https://www.11ty.dev/docs/plugins/image/) via the `{% image %}` shortcode.
+	- Zero-JavaScript output.
+	- Support for modern image formats automatically (e.g. AVIF and WebP)
+	- Prefers `<img>` markup if possible (single image format) but switches automatically to `<picture>` for multiple image formats.
+	- Automated `<picture>` syntax markup with `srcset` and optional `sizes`
+	- Includes `width`/`height` attributes to avoid [content layout shift](https://web.dev/cls/).
+	- Includes `loading="lazy"` for native lazy loading without JavaScript.
+	- Includes [`decoding="async"`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding)
+	- Images can be co-located with blog post files.
+	- View the [Image plugin source code](https://github.com/11ty/eleventy-base-blog/blob/main/eleventy.config.images.js)
+- Per page CSS bundles [via `eleventy-plugin-bundle`](https://github.com/11ty/eleventy-plugin-bundle).
+- Built-in [syntax highlighter](https://www.11ty.dev/docs/plugins/syntaxhighlight/) (zero-JavaScript output).
+- Blog Posts
+	- Draft posts: use `draft: true` to mark a blog post as a draft. Drafts are **only** included during `--serve`/`--watch` and are excluded from full builds. View the [Drafts plugin source code](https://github.com/11ty/eleventy-base-blog/blob/main/eleventy.config.drafts.js).
+	- Automated next/previous links
+	- Accessible deep links to headings
+- Generated Pages
+	- Home, Archive, and About pages.
+	- [Feeds for Atom and JSON](https://www.11ty.dev/docs/plugins/rss/)
+	- `sitemap.xml`
+	- Zero-maintenance tag pages ([View on the Demo](https://eleventy-base-blog.netlify.app/tags/))
+	- Content not found (404) page
+
+## Demos
+
+- [Netlify](https://eleventy-base-blog.netlify.com/)
+- [GitHub Pages](https://11ty.github.io/eleventy-base-blog/)
+- [Remix on Glitch](https://glitch.com/~11ty-eleventy-base-blog)
+- [Cloudflare Pages](https://eleventy-base-blog-d2a.pages.dev/)
+
+## Deploy this to your own site
+
+Deploy this Eleventy site in just a few clicks on these services:
+
+- [Get your own Eleventy web site on Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/11ty/eleventy-base-blog)
+- If you run Eleventy locally you can drag your `_site` folder to [`drop.netlify.com`](https://drop.netlify.com/) to upload it without using `git`.
+- [Get your own Eleventy web site on Vercel](https://vercel.com/import/project?template=11ty%2Feleventy-base-blog)
+- [Try it out on Stackblitz](https://stackblitz.com/github/11ty/eleventy-base-blog)
+- Read more about [Deploying an Eleventy project](https://www.11ty.dev/docs/deployment/) to the web.
+
+### Implementation Notes
+
+- `content/about/index.md` is an example of a content page.
+- `content/blog/` has the blog posts but really they can live in any directory. They need only the `posts` tag to be included in the blog posts [collection](https://www.11ty.dev/docs/collections/).
+- Use the `eleventyNavigation` key (via the [Eleventy Navigation plugin](https://www.11ty.dev/docs/plugins/navigation/)) in your front matter to add a template to the top level site navigation. This is in use on `content/index.njk` and `content/about/index.md`.
+- Content can be in _any template format_ (blog posts needn’t exclusively be markdown, for example). Configure your project’s supported templates in `eleventy.config.js` -> `templateFormats`.
+- The `public` folder in your input directory will be copied to the output folder (via `addPassthroughCopy` in the `eleventy.config.js` file). This means `./public/css/*` will live at `./_site/css/*` after your build completes.
+- Provides two content feeds:
+	- `content/feed/feed.njk`
+	- `content/feed/json.njk`
+- This project uses three [Eleventy Layouts](https://www.11ty.dev/docs/layouts/):
+	- `_includes/layouts/base.njk`: the top level HTML structure
+	- `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
+	- `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
+- `_includes/postslist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `content/index.njk` has an example of how to use it.
+
+#### Content Security Policy
+
+If your site enforces a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (as public-facing sites should), you have a few choices (pick one):
+
+1. In `base.njk`, remove `<style>{% getBundle "css" %}</style>` and uncomment `<link rel="stylesheet" href="{% getBundleFileUrl "css" %}">`
+2. Configure the server with the CSP directive `style-src: 'unsafe-inline'` (less secure).
