@@ -1,8 +1,7 @@
 ---
-layout: layouts/dxw-contact-original.njk
+layout: layouts/dxw-contact-merriweather-300.njk
 title: Contact us
 eleventyNavigation:
   key: Tests
   order: 3
 ---
-
